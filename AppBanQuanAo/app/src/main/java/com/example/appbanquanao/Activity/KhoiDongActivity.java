@@ -1,14 +1,15 @@
 package com.example.appbanquanao.Activity;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appbanquanao.DangNhap.DangNhap;
 import com.example.appbanquanao.R;
 
 import java.sql.ResultSet;
-
 
 
 public class KhoiDongActivity extends AppCompatActivity {

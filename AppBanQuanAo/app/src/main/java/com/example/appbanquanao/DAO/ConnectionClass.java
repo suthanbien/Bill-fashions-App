@@ -12,9 +12,11 @@ import java.sql.Statement;
 
 public class ConnectionClass {
     //static String ip = "192.168.1.7"; //long
-    static String ip = "192.168.1.9"; //quy
+    //static String ip = "192.168.1.9"; //quy
     //static String ip = "192.168.128.195"; //server1
-   // static String ip = "192.168.1.4"; //huong
+   // static String ip = "192.168.1.4"; huong
+    static String ip = "192.168.1.5"; //xiu
+
     static String classs = "net.sourceforge.jtds.jdbc.Driver"; //khóa này không thay đổi
     static String db = "QuanLySanPham";//tên database
     static String un = "sqlserver"; //user đăng nhập

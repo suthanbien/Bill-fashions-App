@@ -1,5 +1,6 @@
 package com.example.appbanquanao.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,22 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appbanquanao.Model.DealsHotModel;
+import com.example.appbanquanao.Activity.SanPhamActivity;
+import com.example.appbanquanao.Model.HangHoaModel;
 import com.example.appbanquanao.R;
 
 import java.util.List;
 
 public class DealsHotAdapter extends RecyclerView.Adapter<DealsHotAdapter.ViewHolder> {
-    private List<DealsHotModel> lstDealsHotModels;
+    private List<HangHoaModel> lstDealsHotModels;
 
-    public DealsHotAdapter(List<DealsHotModel> lstDealsHotModels) {
+    public DealsHotAdapter(List<HangHoaModel> lstDealsHotModels) {
         this.lstDealsHotModels = lstDealsHotModels;
     }
 
     @NonNull
     @Override
     public DealsHotAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.deals_hot_item_layout, parent, false);
+        View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.hang_hoa_item_layout, parent, false);
 
         return new ViewHolder(view);
     }
@@ -44,7 +46,13 @@ public class DealsHotAdapter extends RecyclerView.Adapter<DealsHotAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return lstDealsHotModels.size();
+        if(lstDealsHotModels.size()>8){
+            return 8;
+        }else{
+            return lstDealsHotModels.size();
+        }
+
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -56,12 +64,21 @@ public class DealsHotAdapter extends RecyclerView.Adapter<DealsHotAdapter.ViewHo
 
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView_Deals_Hot);
+            imageView = itemView.findViewById(R.id.imageView_AnhSP_TT);
             textViewTenDealsHot = itemView.findViewById(R.id.textView_Ten_DealsHot);
             textViewMoTaDealsHot = itemView.findViewById(R.id.textView_MoTa_DealsHot);
             textViewGiaDealsHot = itemView.findViewById(R.id.textView_Gia_DealsHot);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent thongTinSPIntent = new Intent(itemView.getContext(), SanPhamActivity.class);
+                    itemView.getContext().startActivity(thongTinSPIntent);
+
+                }
+            });
         }
 
         private void setHinhAnh(int resource){

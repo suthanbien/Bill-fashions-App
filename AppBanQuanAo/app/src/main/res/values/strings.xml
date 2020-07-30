@@ -40,7 +40,14 @@
     <string name="dia_chi_Email">Địa chỉ mail</string>
     <string name="deal_of_day">Deals of the Day!!</string>
     <string name="Xem_them">Xem thêm</string>
-
+    <string name="trending">#Trào lưu!!</string>
+    <string name="thongTin">Thông tin</string>
+    <string name="thongTinSanPham">Thông tin sản phẩm</string>
+    <string name="chiTiet">Chi tiết</string>
+    <string name="thongTinThem">Thông tin thêm</string>
+    <string name="danhGia">Đánh giá</string>
+    <string name="danhGiaCuaBan">Đánh giá của bạn</string>
+    <string name="tongCong">Tổng cộng</string>
 
 
 
@@ -51,6 +58,17 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="test">Lorem ipsum dolor sit amet, quam suscipit pede pretium etiam ultrices in,
+        faucibus in arcu orci ante est, in non nunc nunc id, magnis vitae duis feugiat ac vestibulum vivamus,
+        neque ratione pulvinar nec sit quis. Enim amet eros ut, adipiscing sem non, fusce vel eget odio, per urna.
+        Nam pede convallis lacus class litora, cum dictum, vitae amet. Nulla arcu sed iaculis, velit dictum quis cursus,
+        mauris tincidunt tellus id vivamus nunc pede, morbi nullam faucibus vehicula ac ut orci, volutpat quia bibendum pede.
+        Morbi mauris sed consectetuer, volutpat at, nibh dolor sit aliquam semper quam. Morbi erat neque orci ipsum, magna odio
+        in purus malesuada curabitur justo, a molestie eu donec vitae ultrices, iaculis neque lobortis ut volutpat dui semper.
+        Metus interdum, tincidunt vestibulum lorem sit lacinia velit parturient, porta ligula. Mattis sapien sit imperdiet nam ullamcorper,
+        nulla vitae ac, dictum a sit, donec ultrices. Metus class aliquam turpis, vulputate tristique. Amet ac, tortor nunc, convallis
+        id elit risus interdum vestibulum, eu et rutrum, lectus wisi malesuada volutpat nibh. Ut bibendum purus nec, faucibus vivamus
+        nullam augue, dictum vulputate placerat vestibulum etiam et montes</string>
 
 
 </resources>

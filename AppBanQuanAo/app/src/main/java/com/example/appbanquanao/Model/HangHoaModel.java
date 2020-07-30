@@ -1,15 +1,15 @@
 package com.example.appbanquanao.Model;
 
-public class DealsHotModel {
+public class HangHoaModel {
     private int hinhAnh;
     private String ten;
     private String mota;
     private String gia;
 
-    public DealsHotModel() {
+    public HangHoaModel() {
     }
 
-    public DealsHotModel(int hinhAnh, String ten, String mota, String gia) {
+    public HangHoaModel(int hinhAnh, String ten, String mota, String gia) {
         this.hinhAnh = hinhAnh;
         this.ten = ten;
         this.mota = mota;

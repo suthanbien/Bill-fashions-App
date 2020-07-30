@@ -1,5 +1,6 @@
 package com.example.appbanquanao.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appbanquanao.Activity.LoaiSanPhamActivity;
 import com.example.appbanquanao.Model.LoaiSanPhamModel;
 import com.example.appbanquanao.R;
 
@@ -34,7 +36,7 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
         String tenLSP=lstLoaiSanPham.get(position).getTenLoaiSanPham();
         String linkIconLSP=lstLoaiSanPham.get(position).getIconLSPLink();
 
-        holder.setTenLSP(tenLSP);
+        holder.setLSP(tenLSP);
 
     }
 
@@ -50,12 +52,25 @@ public class LoaiSanPhamAdapter extends RecyclerView.Adapter<LoaiSanPhamAdapter.
             iconLoaiSP=itemView.findViewById(R.id.imageView_loaiSP);
             txt_TenLoaiSP=itemView.findViewById(R.id.textView_tenLoaiSP);
         }
-        private void setTenLSP(String ten){
-            txt_TenLoaiSP.setText(ten);
-        }
+
         private void setIconLSP(){
             // todo set icon LSP
 
+        }
+
+        //t
+        private void setLSP(final String ten){
+            txt_TenLoaiSP.setText(ten);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent loaiSPIntent=new Intent(itemView.getContext(), LoaiSanPhamActivity.class);
+                    loaiSPIntent.putExtra("TenLSP",ten);
+                    itemView.getContext().startActivity(loaiSPIntent);
+                }
+            });
         }
     }
 }

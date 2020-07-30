@@ -1,11 +1,9 @@
 package com.example.appbanquanao.Adapter;
 
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.appbanquanao.Model.SliderModel;
 import com.example.appbanquanao.R;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
 
@@ -31,16 +30,16 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     @Override
     public SliderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new SliderViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_layout,parent,false));
+        return new SliderViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item,parent,false));
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
-        Log.e("ERROR","lỗi thực thi câu lệnh SELECT: "+ lstSliderModel.size());
-    holder.setImage(lstSliderModel.get(position));
-    if(position==lstSliderModel.size()-2){
-        viewpager2.post(runnable);
+      //  Log.e("ERROR","lỗi thực thi câu lệnh SELECT: "+ lstSliderModel.size());
+        holder.setImage(lstSliderModel.get(position));
+        if(position==lstSliderModel.size()-2){
+            viewpager2.post(runnable);
     }
     }
 
@@ -50,10 +49,10 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     }
 
     class SliderViewHolder extends RecyclerView.ViewHolder {
-     private ImageView imageView;
+        private RoundedImageView imageView;
      public SliderViewHolder(@NonNull View itemView) {
          super(itemView);
-         imageView=itemView.findViewById(R.id.banner_slider_image);
+         imageView=itemView.findViewById(R.id.image_item_view);
      }
      void setImage(SliderModel sliderModel){
          imageView.setImageResource(sliderModel.getBanner());

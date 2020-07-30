@@ -1,16 +1,13 @@
 package com.example.appbanquanao.DangNhap;
 
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.widget.FrameLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
-import com.example.appbanquanao.Fragment.DangKyFragment;
 import com.example.appbanquanao.Fragment.DangNhapFragment;
 import com.example.appbanquanao.R;
 
@@ -47,7 +44,7 @@ public class DangNhap extends AppCompatActivity {
     }
     private void SetFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_from_left,R.anim.slydeout_from_right);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_from_left, R.anim.slydeout_from_right);
         fragmentTransaction.replace(frameLayout.getId(),fragment);
         fragmentTransaction.commit();
     }

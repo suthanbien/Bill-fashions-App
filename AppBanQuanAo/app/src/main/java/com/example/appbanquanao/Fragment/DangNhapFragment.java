@@ -24,9 +24,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.appbanquanao.Activity.TrangChuActivity;
 import com.example.appbanquanao.DAO.ConnectionClass;
 import com.example.appbanquanao.R;
-import com.example.appbanquanao.TrangChuActivity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -150,7 +150,7 @@ public class DangNhapFragment extends Fragment {
 
     private void SetFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_from_right,R.anim.slideout_from_left);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_from_right, R.anim.slideout_from_left);
         fragmentTransaction.replace(frameLayout.getId(),fragment);
         fragmentTransaction.commit();
     }
@@ -176,7 +176,7 @@ public class DangNhapFragment extends Fragment {
 
         username=edtTaiKhoan.getText().toString();
         password=edtMatKhau.getText().toString();
-        if(kiemTraDangNhap(username,password)){
+        /*if(kiemTraDangNhap(username,password)){
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -208,7 +208,30 @@ public class DangNhapFragment extends Fragment {
             progressBarDangNhap.setVisibility(View.INVISIBLE);
             btnDangNhap.setTextColor(getResources().getColor(R.color.colorTrang));
             btnDangNhap.setEnabled(true);
-        }
+        }*/
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Do something after 500ms
+                // Toast.makeText(getActivity(),"Đăng Nhập Thành Công",Toast.LENGTH_SHORT).show();
+                Intent trangChuIntent = new Intent(getActivity(), TrangChuActivity.class);
+                startActivity(trangChuIntent);
+                getActivity().finish();
+                // progressBar.setVisibility(View.INVISIBLE);
+
+                SharedPreferences.Editor editor =sharedPreferences.edit();
+                editor.putString("taiKhoan",username);
+                editor.putString("matKhau",password);
+                editor.putBoolean("trangThai",true);
+
+                editor.commit();
+
+                btnDangNhap.setTextColor(getResources().getColor(R.color.colorTrang));
+                btnDangNhap.setEnabled(true);
+            }
+        }, 2000);
+
     }
     public boolean kiemTraDangNhap(String username,String password){
         boolean ketqua=false;

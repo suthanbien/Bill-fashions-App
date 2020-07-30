@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/strip_ad_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:layout_height="wrap_content"
     android:background="@color/colorAccent1">
 
     <ImageView
         android:id="@+id/imageView_strip_ad"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
