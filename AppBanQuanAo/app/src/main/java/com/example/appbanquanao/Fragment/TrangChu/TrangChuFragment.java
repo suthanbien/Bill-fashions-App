@@ -94,6 +94,11 @@ public class TrangChuFragment extends Fragment {
         lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao2,"Set Umbala","1000% Kháng Phép","Chỉ từ: 1.600.000 VNĐ"));
         lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao2,"Quần của Huck","Chất liệu bềnh nhất vũ trụ","Chỉ từ: 500.000 VNĐ"));
         lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao1,"Quần què","Thiết kế độc lạ","Chỉ từ: 800.000 VNĐ"));
+        lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao1,"Quần của Abe1","Quần có 1 không 2","Chỉ từ: 100.000 VNĐ"));
+        lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao3,"Set đồ hot1","95% Tỉ lệ ăn hành","Chỉ từ: 500.000 VNĐ"));
+        lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao2,"Set Umbala1","1000% Kháng Phép","Chỉ từ: 1.600.000 VNĐ"));
+        lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao2,"Quần của Huck1","Chất liệu bềnh nhất vũ trụ","Chỉ từ: 500.000 VNĐ"));
+        lstDealsHotModel.add(new HangHoaModel(R.mipmap.quanao1,"Quần què1","Thiết kế độc lạ","Chỉ từ: 800.000 VNĐ"));
 
 
         //phần list SP

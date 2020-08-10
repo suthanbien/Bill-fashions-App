@@ -1,5 +1,6 @@
 package com.example.appbanquanao.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appbanquanao.Activity.SanPhamActivity;
 import com.example.appbanquanao.Model.YeuThichModel;
 import com.example.appbanquanao.R;
 
@@ -17,9 +19,11 @@ import java.util.List;
 
 public class YeuThichAdapter extends RecyclerView.Adapter<YeuThichAdapter.ViewHolder> {
     private List<YeuThichModel> lstYeuThichModels;
+    private Boolean yeuThich;
 
-    public YeuThichAdapter(List<YeuThichModel> lstYeuThichModels) {
+    public YeuThichAdapter(List<YeuThichModel> lstYeuThichModels, Boolean yeuThich) {
         this.lstYeuThichModels = lstYeuThichModels;
+        this.yeuThich = yeuThich;
     }
 
     @NonNull
@@ -61,7 +65,7 @@ public class YeuThichAdapter extends RecyclerView.Adapter<YeuThichAdapter.ViewHo
         private TextView txtFreeCoupenLove;
         private ImageView imageViewDeleteLove;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             textViewLoveGiaSPCu = itemView.findViewById(R.id.textView_Love_GiaSPCu);
@@ -74,6 +78,13 @@ public class YeuThichAdapter extends RecyclerView.Adapter<YeuThichAdapter.ViewHo
             freeCouponIconLove = itemView.findViewById(R.id.freeCouponIcon_love);
             txtFreeCoupenLove = itemView.findViewById(R.id.txt_free_coupen_Love);
             imageViewDeleteLove = itemView.findViewById(R.id.imageView_Delete_Love);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent thongTinSPIntent = new Intent(itemView.getContext(), SanPhamActivity.class);
+                    itemView.getContext().startActivity(thongTinSPIntent);
+                }
+            });
 
         }
         private void SetData(int resource, String title, int freeCouponNo, String diemDanhGia, int soLuongDanhGia, String giaSP, String giaSPCu){
@@ -95,6 +106,12 @@ public class YeuThichAdapter extends RecyclerView.Adapter<YeuThichAdapter.ViewHo
             textViewSoLuongDanhGiaLove.setText(soLuongDanhGia+" Ratings");
             textViewLoveGiaSP.setText(giaSP);
             textViewLoveGiaSPCu.setText(giaSPCu);
+            if(yeuThich){
+                imageViewDeleteLove.setVisibility(View.VISIBLE);
+            }else{
+                imageViewDeleteLove.setVisibility(View.GONE);
+            }
+
             imageViewDeleteLove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -1,5 +1,6 @@
 package com.example.appbanquanao.Activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,15 +18,19 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.appbanquanao.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class TrangChuActivity extends AppCompatActivity {
+public class
+TrangChuActivity extends AppCompatActivity {
 
     private static final int HOME_FRAGMENT=0;
     private static final int CART_FRAGMENT=1;
+    public static Boolean showCart=false;
+
     private static  int currentFragment;
     private NavigationView navigationView;
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,7 @@ public class TrangChuActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
          navigationView = findViewById(R.id.nav_view);
@@ -53,6 +59,11 @@ public class TrangChuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        if(showCart){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            Navigation.findNavController(this, R.id.nav_host_fragment).navigate( R.id.nav_gio_hang);
+        }
+
 
     }
 
@@ -77,15 +88,25 @@ public class TrangChuActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        if(showCart){
+            showCart=false;
+            finish();
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
         if(id== R.id.mnuGioHang){
-            Toast.makeText(this,"mnuGioHang",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"mnuGioHang",Toast.LENGTH_SHORT).show();
             Navigation.findNavController(this, R.id.nav_host_fragment).navigate( R.id.nav_gio_hang);
             currentFragment=CART_FRAGMENT;
             //invalidateOptionsMenu();
+
             return true;
         }else if(id== R.id.mnuThongBao){
             Toast.makeText(this,"mnuThongBao",Toast.LENGTH_SHORT).show();

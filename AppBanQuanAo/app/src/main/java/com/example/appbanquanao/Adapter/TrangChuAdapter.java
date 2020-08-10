@@ -1,5 +1,6 @@
 package com.example.appbanquanao.Adapter;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.appbanquanao.Activity.ViewAllActivity;
 import com.example.appbanquanao.Model.HangHoaModel;
 import com.example.appbanquanao.Model.SliderModel;
 import com.example.appbanquanao.Model.TrangChuModel;
@@ -189,7 +191,7 @@ public class TrangChuAdapter extends RecyclerView.Adapter {
             super(itemView);
 
             recyclerViewScrollLayout = itemView.findViewById(R.id.recyclerView_scroll_layout);
-            buttonXemThem = itemView.findViewById(R.id.button_XemThem);
+            buttonXemThem = itemView.findViewById(R.id.button_XemThem_dealHot);
             textViewDealsHot = itemView.findViewById(R.id.textView_deals_hot);
         }
 
@@ -198,9 +200,17 @@ public class TrangChuAdapter extends RecyclerView.Adapter {
 
             if(lstDealsHotModel.size()>8){
                 buttonXemThem.setVisibility(View.VISIBLE);
+                buttonXemThem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                        viewAllIntent.putExtra("layout_code",0);
+                        itemView.getContext().startActivity(viewAllIntent);
+                    }
+                });
             }else{
-
-            }buttonXemThem.setVisibility(View.INVISIBLE);
+                buttonXemThem.setVisibility(View.INVISIBLE);
+            }
 
 
 
@@ -229,6 +239,14 @@ public class TrangChuAdapter extends RecyclerView.Adapter {
             textViewTrendingLayout.setText(title);
 
             gridTraoLuu.setAdapter(new TrendingAdapter(lstDealsHotModel));
+            buttonXemThemTrending.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                    viewAllIntent.putExtra("layout_code",1);
+                    itemView.getContext().startActivity(viewAllIntent);
+                }
+            });
         }
     }
 }

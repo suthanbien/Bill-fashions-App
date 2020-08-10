@@ -45,7 +45,7 @@ public class YeuThichFragment extends Fragment {
         lstYeuthichModel.add(new YeuThichModel(R.mipmap.quanao1, "Quần Què 3",  5,  "3",  124,  "600.000VNĐ",  "550.000VNĐ"));
         lstYeuthichModel.add(new YeuThichModel(R.mipmap.quanao3, "Quần Què 1",  6,  "2",  125,  "700.000VNĐ",  "650.000VNĐ"));
 
-        YeuThichAdapter yeuThichAdapter=new YeuThichAdapter(lstYeuthichModel);
+        YeuThichAdapter yeuThichAdapter=new YeuThichAdapter(lstYeuthichModel,true);
         yeuthichRecyclerView.setAdapter(yeuThichAdapter);
         yeuThichAdapter.notifyDataSetChanged();
 

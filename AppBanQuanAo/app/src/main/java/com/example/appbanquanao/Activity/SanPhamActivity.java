@@ -1,6 +1,7 @@
 package com.example.appbanquanao.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ public class SanPhamActivity extends AppCompatActivity {
     private TabLayout soluongAnhSp;
     private Handler slideHandler=new Handler();
     private FloatingActionButton btnThemVaoYeuThich;
+    private Button buyNowBtn;
+
 
     private TabLayout thongTinSPTabLayout;
     private ViewPager thongTinSPViewPage;
@@ -56,6 +60,8 @@ public class SanPhamActivity extends AppCompatActivity {
         thongTinSPTabLayout = findViewById(R.id.thongTinSP_TabLayout);
         thongTinSPViewPage = findViewById(R.id.thongTinSP_ViewPage);
         danhgiaLayout=findViewById(R.id.rate_order_container);
+        buyNowBtn = findViewById(R.id.buy_now_btn);
+
 
         //xử lý
         List<Integer> lstAnhSP=new ArrayList<>();
@@ -113,6 +119,14 @@ public class SanPhamActivity extends AppCompatActivity {
             });
 
         }
+
+        buyNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent delliverIntent = new Intent(SanPhamActivity.this, DelivertyActivity.class);
+                startActivity(delliverIntent);
+            }
+        });
     }
 
 
@@ -141,7 +155,11 @@ public class SanPhamActivity extends AppCompatActivity {
             Toast.makeText(this,"mnuTimKiem",Toast.LENGTH_SHORT).show();
             return true;
         }if(id== R.id.mnuGioHang){
-            Toast.makeText(this,"mnuGioHang",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this,"mnuGioHang",Toast.LENGTH_SHORT).show();
+            Intent cartIntent=new Intent(SanPhamActivity.this, TrangChuActivity.class);
+            TrangChuActivity.showCart=true;
+            startActivity(cartIntent);
+
             return true;
         }if(id==android.R.id.home){
             finish();

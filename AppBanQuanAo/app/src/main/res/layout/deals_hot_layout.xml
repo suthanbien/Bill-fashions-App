@@ -14,10 +14,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_XemThem" />
+        app:layout_constraintTop_toBottomOf="@+id/button_XemThem_dealHot" />
 
     <Button
-        android:id="@+id/button_XemThem"
+        android:id="@+id/button_XemThem_dealHot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/design_default_color_primary_dark"
@@ -37,7 +37,7 @@
         android:textColor="@color/colorTieuDe"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button_XemThem"
+        app:layout_constraintBottom_toBottomOf="@+id/button_XemThem_dealHot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
